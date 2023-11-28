@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "469703618891",
+    "project_id": "emarche-8a07d",
+    "storage_bucket": "emarche-8a07d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:469703618891:android:a5638ff6cb96e79af738ce",
+        "android_client_info": {
+          "package_name": "com.example.emarche_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDy6XJSEASoCoEegqIr4qpqJeO6sRyqZm8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
