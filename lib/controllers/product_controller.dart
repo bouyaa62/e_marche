@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:emart_app/consts/consts.dart';
 import 'package:emart_app/models/category_model.dart';
 import 'package:flutter/services.dart';
@@ -9,6 +10,8 @@ class ProductController extends GetxController {
   var totalPrice = 0.obs;
 
   var subcat = [];
+
+  var isFavorite = false.obs;
 
   getSubCategories(title) async {
     subcat.clear();
@@ -41,13 +44,15 @@ class ProductController extends GetxController {
     totalPrice.value = price * quantity.value;
   }
 
-  addToCart({title, img, sellername, color, qty, tprice, context}) async {
+  addToCart(
+      {title, img, sellername, color, qty, tprice, context, vendorID}) async {
     await firestore.collection(cartCollection).doc().set({
       'title': title,
       'img': img,
       'sellername': sellername,
       'color': color,
       'qty': qty,
+      'vendor_id': vendorID,
       'tprice': tprice,
       'added_by': currentUser!.uid
     }).catchError((error) {
@@ -59,5 +64,29 @@ class ProductController extends GetxController {
     totalPrice.value = 0;
     quantity.value = 0;
     colorIndex.value = 0;
+  }
+
+  addToWhishlist(docId, context) async {
+    await firestore.collection(productsCollection).doc(docId).set({
+      'p_wishlist': FieldValue.arrayUnion([currentUser!.uid])
+    }, SetOptions(merge: true));
+    isFavorite(true);
+    VxToast.show(context, msg: "Added to wishlist");
+  }
+
+  removeFromWhishlist(docId, context) async {
+    await firestore.collection(productsCollection).doc(docId).set({
+      'p_wishlist': FieldValue.arrayRemove([currentUser!.uid])
+    }, SetOptions(merge: true));
+    isFavorite(false);
+    VxToast.show(context, msg: "Removed from wishlist");
+  }
+
+  checkIfFav(data) async {
+    if (data['p_wishlist'].contains(currentUser!.uid)) {
+      isFavorite(true);
+    } else {
+      isFavorite(false);
+    }
   }
 }

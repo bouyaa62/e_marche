@@ -1,6 +1,7 @@
 import 'package:emart_app/consts/consts.dart';
 import 'package:emart_app/consts/lists.dart';
 import 'package:emart_app/controllers/product_controller.dart';
+import 'package:emart_app/views/chat_screen/chat_screen.dart';
 import 'package:emart_app/views/widgets_common/our_button.dart';
 import 'package:get/get.dart';
 
@@ -31,8 +32,21 @@ class ItemDetails extends StatelessWidget {
           title: title!.text.color(darkFontGrey).fontFamily(bold).make(),
           actions: [
             IconButton(onPressed: () {}, icon: const Icon(Icons.share)),
-            IconButton(
-                onPressed: () {}, icon: const Icon(Icons.favorite_outline)),
+            Obx(
+              () => IconButton(
+                  onPressed: () {
+                    if (controller.isFavorite.value) {
+                      controller.removeFromWhishlist(data.id, context);
+                    } else {
+                      controller.addToWhishlist(data.id, context);
+                    }
+                  },
+                  icon: Icon(
+                    Icons.favorite_outlined,
+                    color:
+                        controller.isFavorite.value ? redColor : darkFontGrey,
+                  )),
+            ),
           ],
         ),
         body: Column(
@@ -104,7 +118,12 @@ class ItemDetails extends StatelessWidget {
                             backgroundColor: Colors.white,
                             child: Icon(Icons.message_rounded,
                                 color: darkFontGrey),
-                          )
+                          ).onTap(() {
+                            Get.to(
+                              () => const ChatScreen(),
+                              arguments: [data['p_seller'], data['vendor_id']],
+                            );
+                          })
                         ],
                       )
                           .box
@@ -300,6 +319,7 @@ class ItemDetails extends StatelessWidget {
                   controller.addToCart(
                       color: data['p_colors'][controller.colorIndex.value],
                       context: context,
+                      vendorID: data['vendor_id'],
                       img: data['p_imgs'][0],
                       qty: controller.quantity.value,
                       sellername: data['p_seller'],

@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:emart_app/consts/consts.dart';
 import 'package:emart_app/controllers/cart_controller.dart';
 import 'package:emart_app/services/firestore_services.dart';
+import 'package:emart_app/views/cart_screen/shipping_screen.dart';
 import 'package:emart_app/views/widgets_common/loading_indicator.dart';
 import 'package:emart_app/views/widgets_common/our_button.dart';
 import 'package:get/get.dart';
@@ -14,6 +15,17 @@ class CartScreen extends StatelessWidget {
     var controller = Get.put(CartController());
     return Scaffold(
         backgroundColor: whiteColor,
+        bottomNavigationBar: SizedBox(
+          height: 60,
+          child: ourButton(
+            color: redColor,
+            onPress: () {
+              Get.to(() => const ShippingScreen());
+            },
+            textColor: whiteColor,
+            title: "Procced to shipping",
+          ),
+        ),
         appBar: AppBar(
           automaticallyImplyLeading: false,
           title: "Shopping cart"
@@ -37,40 +49,42 @@ class CartScreen extends StatelessWidget {
               } else {
                 var data = snapshot.data!.docs;
                 controller.calculate(data);
+                controller.productSnapshot = data;
                 return Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Column(
                     children: [
                       Expanded(
-                        child: Container(
-                          child: ListView.builder(
-                              itemCount: data.length,
-                              itemBuilder: (BuildContext context, int index) {
-                                return ListTile(
-                                  leading:
-                                      Image.network('${data[index]['img']}'),
-                                  title:
-                                      '${data[index]['title']} (${data[index]['qty']})'
-                                          .text
-                                          .fontFamily(semibold)
-                                          .size(16)
-                                          .make(),
-                                  subtitle: '${data[index]['tprice']}'
-                                      .numCurrency
-                                      .text
-                                      .color(redColor)
-                                      .fontFamily(semibold)
-                                      .make(),
-                                  trailing: const Icon(
-                                    Icons.delete,
-                                    color: redColor,
-                                  ).onTap(() {
-                                    FirestoreServices.deleteDocument(
-                                        data[index].id);
-                                  }),
-                                );
-                              }),
-                        ),
+                        child: ListView.builder(
+                            itemCount: data.length,
+                            itemBuilder: (BuildContext context, int index) {
+                              return ListTile(
+                                leading: Image.network(
+                                  '${data[index]['img']}',
+                                  width: 80,
+                                  fit: BoxFit.fill,
+                                ),
+                                title:
+                                    '${data[index]['title']} (${data[index]['qty']})'
+                                        .text
+                                        .fontFamily(semibold)
+                                        .size(16)
+                                        .make(),
+                                subtitle: '${data[index]['tprice']}'
+                                    .numCurrency
+                                    .text
+                                    .color(redColor)
+                                    .fontFamily(semibold)
+                                    .make(),
+                                trailing: const Icon(
+                                  Icons.delete,
+                                  color: redColor,
+                                ).onTap(() {
+                                  FirestoreServices.deleteDocument(
+                                      data[index].id);
+                                }),
+                              );
+                            }),
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -97,15 +111,6 @@ class CartScreen extends StatelessWidget {
                           .roundedSM
                           .make(),
                       10.heightBox,
-                      SizedBox(
-                        width: context.screenWidth - 60,
-                        child: ourButton(
-                          color: redColor,
-                          onPress: () {},
-                          textColor: whiteColor,
-                          title: "Procced to shipping",
-                        ),
-                      )
                     ],
                   ),
                 );

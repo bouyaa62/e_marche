@@ -25,4 +25,13 @@ class FirestoreServices {
   static deleteDocument(docId) {
     return firestore.collection(cartCollection).doc(docId).delete();
   }
+
+  static getChatMessage(docId) {
+    return firestore
+        .collection(chatsCollecton)
+        .doc(docId)
+        .collection(messagesCollection)
+        .orderBy('created_on', descending: false)
+        .snapshots();
+  }
 }

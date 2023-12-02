@@ -104,8 +104,7 @@ class EditProfileScreen extends StatelessWidget {
                                   imageUrl: controller.profileImageLink);
                               VxToast.show(context, msg: "updated");
                             } else if (data['password'] ==
-                                    controller.oldpassController.text &&
-                                controller.newpassController.text != null) {
+                                controller.oldpassController.text) {
                               await controller.changeAuthPassword(
                                 email: data['email'],
                                 password: controller.oldpassController.text,
