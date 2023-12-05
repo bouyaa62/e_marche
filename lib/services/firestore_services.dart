@@ -15,6 +15,13 @@ class FirestoreServices {
         .snapshots();
   }
 
+  static getSubCategoryProducts(title) {
+    return firestore
+        .collection(productsCollection)
+        .where('p_category', isEqualTo: title)
+        .snapshots();
+  }
+
   static getCart(uid) {
     return firestore
         .collection(cartCollection)
@@ -54,5 +61,47 @@ class FirestoreServices {
         .collection(chatsCollecton)
         .where('fromId', isEqualTo: currentUser!.uid)
         .snapshots();
+  }
+
+  static getCounts() async {
+    var res = Future.wait([
+      firestore
+          .collection(cartCollection)
+          .where('added_by', isEqualTo: currentUser!.uid)
+          .get()
+          .then((value) {
+        return value.docs.length;
+      }),
+      firestore
+          .collection(productsCollection)
+          .where('p_wishlist', arrayContains: currentUser!.uid)
+          .get()
+          .then((value) {
+        return value.docs.length;
+      }),
+      firestore
+          .collection(ordersCollection)
+          .where('order_by', isEqualTo: currentUser!.uid)
+          .get()
+          .then((value) {
+        return value.docs.length;
+      }),
+    ]);
+    return res;
+  }
+
+  static allProducts() {
+    return firestore.collection(productsCollection).snapshots();
+  }
+
+  static getFeaturedProducts() {
+    return firestore
+        .collection(productsCollection)
+        .where('is_featured', isEqualTo: true)
+        .snapshots();
+  }
+
+  static searchProduct(title) {
+    return firestore.collection(productsCollection).get();
   }
 }

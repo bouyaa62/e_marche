@@ -40,7 +40,7 @@ class OrdersDetails extends StatelessWidget {
                       color: Colors.yellow,
                       icon: Icons.car_crash,
                       title: "On delivery",
-                      showDone: data['order_on_deliverey']),
+                      showDone: data['order_on_delivery']),
                   orderStatus(
                       color: Colors.purple,
                       icon: Icons.done_all_rounded,
@@ -59,7 +59,7 @@ class OrdersDetails extends StatelessWidget {
                       orderPlaceDetails(
                         d1: intl.DateFormat()
                             .add_yMd()
-                            .format(data['order_data'].toDate()),
+                            .format(data['order_date'].toDate()),
                         d2: data['payment_method'],
                         title1: "Order Date",
                         title2: "Payment Method",
@@ -133,7 +133,7 @@ class OrdersDetails extends StatelessWidget {
                         children: [
                           orderPlaceDetails(
                             title1: data['orders'][index]['title'],
-                            title2: data['orders'][index]['tprice'].numCurrency,
+                            title2: data['orders'][index]['tprice'],
                             d1: "${data['orders'][index]['qty']}x ",
                             d2: "Refundable",
                           ),

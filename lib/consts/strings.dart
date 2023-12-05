@@ -22,7 +22,9 @@ const alreadyHaveAccount = "Already have an account? ";
 const home = "Home",
     categories = "Categories",
     cart = "Cart",
-    account = "Account";
+    account = "Account",
+    allproducts = "All Products";
+
 const searchAnything = "Search anything...",
     todayDeal = "Today's Deal",
     flashSale = "Flash Sale",
