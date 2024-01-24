@@ -15,20 +15,14 @@ E-marche is an e-commerce mobile application built using flutter and firebase. I
 
 Check screenshots of all the application's screens.
 
-![App Screenshot](https://i.ibb.co/3Swd26h/Screenshot-2023-12-10-13-16-18-66.jpg)
-![App Screenshot](https://i.ibb.co/C6FRBhX/Screenshot-2023-12-10-13-16-22-42.jpg)
-![App Screenshot](https://i.ibb.co/pvj8JV8/Screenshot-2023-12-10-13-16-25-02.jpg)
-![App Screenshot](https://i.ibb.co/rxWV3hY/Screenshot-2023-12-10-13-16-29-34.jpg)
-![App Screenshot](https://i.ibb.co/DWgmv99/Screenshot-2023-12-10-13-16-32-54.jpg)
-![App Screenshot](https://i.ibb.co/q0rZ2rR/Screenshot-2023-12-10-13-16-35-34.jpg)
-![App Screenshot](https://i.ibb.co/vVGZjh2/Screenshot-2023-12-10-13-16-42-44.jpg)
-![App Screenshot](https://i.ibb.co/vj6h8Vv/Screenshot-2023-12-10-13-16-49-23.jpg)
-![App Screenshot](https://i.ibb.co/0hWdSc6/Screenshot-2023-12-10-13-16-52-38.jpg)
-![App Screenshot](https://i.ibb.co/GpCS8wz/Screenshot-2023-12-10-13-16-55-14.jpg)
-![App Screenshot](https://i.ibb.co/McnRp8B/Screenshot-2023-12-10-13-17-22-85.jpg)
-![App Screenshot](https://i.ibb.co/xjJ35Jg/Screenshot-2023-12-10-13-17-31-11.jpg)
-![App Screenshot](https://i.ibb.co/Gpz1B38/Screenshot-2023-12-10-13-17-34-89.jpg)
-![App Screenshot](https://i.ibb.co/Pm20BKY/Screenshot-2023-12-10-13-17-41-78.jpg)
+![App Screenshot](https://i.ibb.co/T1dNJzc/Screenshot-2024-01-24-16-22-58-74.jpg)
+![App Screenshot](https://i.ibb.co/c2khSqy/Screenshot-2024-01-24-16-25-02-97.jpg)
+![App Screenshot](https://i.ibb.co/ry4cxWz/Screenshot-2024-01-24-16-26-12-76.jpg)
+![App Screenshot](https://i.ibb.co/Vg89NLF/Screenshot-2024-01-24-16-26-25-39.jpg)
+![App Screenshot](https://i.ibb.co/8nkQPVK/Screenshot-2024-01-24-16-26-43-88.jpg)
+![App Screenshot](https://i.ibb.co/1nDP9cj/Screenshot-2024-01-24-16-26-53-48.jpg)
+![App Screenshot](https://i.ibb.co/X8vYXt8/Screenshot-2024-01-24-16-27-05-43.jpg)
+
 # Demo
 
-Click [here](https://drive.google.com/file/d/1jyT49BiCKdA_Pk7FjlkVZHqKJfQ9yBq3/view?usp=drive_link) for a google drive link for the application's demo.
+Click [here](https://drive.google.com/file/d/1U6V45gEpDrsmcE_FZbHdNtDsrgM0hChF/view?usp=drive_link) for a google drive link for the application's demo.
