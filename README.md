@@ -29,8 +29,3 @@ Check screenshots of all the application's screens.
 ![App Screenshot](https://i.ibb.co/xjJ35Jg/Screenshot-2023-12-10-13-17-31-11.jpg)
 ![App Screenshot](https://i.ibb.co/Gpz1B38/Screenshot-2023-12-10-13-17-34-89.jpg)
 ![App Screenshot](https://i.ibb.co/Pm20BKY/Screenshot-2023-12-10-13-17-41-78.jpg)
-
-
-# Demo
-
-Click [here](https://drive.google.com/file/d/1jyT49BiCKdA_Pk7FjlkVZHqKJfQ9yBq3/view?usp=drive_link) for a google drive link for the application's demo.
